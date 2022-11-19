@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-sl {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "Nunito-Light";
+  }
+
+  .text-sr {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "Nunito-Regular";
+  }
+
+  .text-sm {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "Nunito-Medium";
+  }
+
+  .text-ml {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.0005em;
+    font-family: "Nunito-Light";
+  }
+
+  .text-mr {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.0005em;
+    font-family: "Nunito-Regular";
+  }
+
+  .text-mm {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.0005em;
+    font-family: "Nunito-Medium";
+  }
+
+  .text-btnm {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.006em;
+    font-family: "Nunito-Medium";
+  }
+
+  .text-btnl {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.006em;
+    font-family: "Nunito-Light";
+  }
+
+  .text-lr {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.011em;
+    font-family: "Nunito-Regular";
+  }
+
+  .text-lm {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.011em;
+    font-family: "Nunito-Medium";
+  }
+
+  .heading-sr {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.017em;
+    font-family: "Nunito-Regular";
+  }
+
+  .heading-sm {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.017em;
+    font-family: "Nunito-Medium";
+  }
+
+  .heading-m {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.0005em;
+  }
+
+  .heading-l {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: -0.022em;
+    font-family: 'Nunito-Bold';
+  }
+
+  .heading-x {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+  }
+
+  .heading-xl {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 44px;
+  }
+
+  .heading-xxl {
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 74px;
+    letter-spacing: 0.04em;
+  }
+
+  table {
+    border: 1px solid lightgrey;
+    border-radius: 16px;
+    border-collapse: separate !important;
+  }
+  table thead th {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: black;
+    border-bottom: 1px solid lightgrey;
+  }
+  table tbody tr {
+    border-bottom: 1px solid lightgrey !important;
+  }
+  table tbody td {
+    padding: 16px;
+    color: black;
+    font-family: "Nunito-Bold";
+  }
+  
+}
