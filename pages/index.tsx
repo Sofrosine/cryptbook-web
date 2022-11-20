@@ -10,20 +10,13 @@ import { Store } from "reducers";
 const Home = () => {
   const { market, filter } = useContext(Store);
   const [marketData, setMarketData] = market;
-  const [filterData, setFilterData] = filter;
+  const [filterData] = filter;
 
   const [searchData, setSearchData] = useState("");
 
-  const {
-    data: currencyData,
-    isFetching: currencyFetching,
-    refetch: refetchCurrency,
-  } = useGetCurrency();
-  const {
-    data: priceChangeData,
-    isFetching: priceChangeFetching,
-    refetch: refetchPriceChange,
-  } = useGetPriceChange();
+  const { data: currencyData, isFetching: currencyFetching } = useGetCurrency();
+  const { data: priceChangeData, isFetching: priceChangeFetching } =
+    useGetPriceChange();
 
   useEffect(() => {
     if (
