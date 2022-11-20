@@ -4,13 +4,15 @@ import Table from "components/Table";
 import { DUMMY_MARKET_DATA } from "data";
 import useGetCurrency from "queries/currency/useGetCurrency";
 import useGetPriceChange from "queries/price/useGetPriceChange";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Store } from "reducers";
 
 const Home = () => {
   const { market, filter } = useContext(Store);
   const [marketData, setMarketData] = market;
   const [filterData, setFilterData] = filter;
+
+  const [searchData, setSearchData] = useState("");
 
   const {
     data: currencyData,
@@ -27,7 +29,8 @@ const Home = () => {
     if (
       currencyData?.length > 0 &&
       priceChangeData?.length > 0 &&
-      !filterData?.data?.name
+      !filterData?.data?.name &&
+      !searchData
     ) {
       combineCurrencyPrice();
     }
@@ -40,6 +43,13 @@ const Home = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterData]);
+
+  useEffect(() => {
+    if (searchData) {
+      combineCurrencyPrice(searchData);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchData]);
 
   const combineCurrencyPrice = (searchVal?: string) => {
     let arr = [];
@@ -134,7 +144,10 @@ const Home = () => {
       <span className="mb-4 heading-l px-6">
         Harga Crypto dalam Rupiah Hari Ini
       </span>
-      <FilterList className="px-6 mb-2" />
+      <FilterList
+        onChange={(val) => setSearchData(val)}
+        className="px-6 mb-2"
+      />
       <Table
         loading={currencyFetching || priceChangeFetching}
         data={marketData?.data}

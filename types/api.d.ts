@@ -31,11 +31,13 @@ type SupportedCurrency = {
   priceChange?: PriceChange;
 };
 
-type FilterName = 'new' | 'name' | 'gain' | 'price';
+type FilterName = "new" | "name" | "gain" | "price";
 
-type FilterSort = 'asc' | 'desc';
+type FilterSort = "asc" | "desc";
 
 type FilterType = {
   name: FilterName;
   sort?: FilterSort | null;
 };
+
+type GainOption = "day" | "week" | "month" | "year";

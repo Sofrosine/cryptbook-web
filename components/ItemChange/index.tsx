@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 type Props = {
-  value: string;
+  value?: string;
 };
 
 const ItemChange: React.FC<Props> = ({ value }) => {
@@ -29,6 +29,10 @@ const ItemChange: React.FC<Props> = ({ value }) => {
       </span>
     </div>
   );
+};
+
+ItemChange.defaultProps = {
+  value: "0",
 };
 
 export default ItemChange;

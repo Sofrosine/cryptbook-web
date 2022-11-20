@@ -4,7 +4,7 @@ import clsx from "clsx";
 import ItemChange from "components/ItemChange";
 import { hexToCSSFilter } from "hex-to-css-filter";
 import Image from "next/image";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { currencyConverter } from "utils";
 
@@ -15,6 +15,8 @@ type Props = {
 };
 
 const Table: React.FC<Props> = ({ loading, data, className }) => {
+  const [gainOption, setGainOption] = useState<GainOption | string>("day");
+
   return (
     <div className={clsx(className, "w-full min-h-screen flex flex-col")}>
       <table className="w-full responsive">
@@ -31,12 +33,25 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
         <thead className="table-header-group md:hidden">
           <tr>
             <th className="text-left pl-4">CRYPTO</th>
-            <th className="text-right pr-4">HARGA</th>
+            <th className="text-right relative pr-4">
+              <select
+                className="text-right"
+                onChange={(v) => setGainOption(v?.target?.value)}
+              >
+                <option value="day">24 JAM</option>
+                <option value="week">1 MINGGU</option>
+                <option value="month">1 BULAN</option>
+                <option value="year">1 TAHUN</option>
+              </select>
+            </th>
           </tr>
         </thead>
         <tbody>
           {data?.map((v: SupportedCurrency, k) => (
-            <tr key={k} className="text-center ">
+            <tr
+              key={k}
+              className="text-center hover:bg-sky-100 hover:cursor-pointer"
+            >
               <td>
                 {loading ? (
                   <Skeleton />
@@ -44,7 +59,10 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                   <div className="flex items-center justify-between">
                     <span className="flex items-center">
                       <Image
-                        src={v?.logo}
+                        src={
+                          v?.logo ||
+                          "https://s3-ap-southeast-1.amazonaws.com/static.pintu.co.id/assets/images/logo/circle_IDRT.svg"
+                        }
                         height={24}
                         width={24}
                         alt="icon"
@@ -67,7 +85,29 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                   </div>
                 )}
               </td>
-              <td className="text-right md:text-center">
+              <td className="table-cell md:hidden text-right">
+                {loading ? (
+                  <Skeleton />
+                ) : (
+                  <span className="flex flex-col items-end">
+                    {currencyConverter(
+                      Number(v?.priceChange?.latestPrice || 0)
+                    )}
+                    <ItemChange
+                      value={
+                        (gainOption === "day"
+                          ? v?.priceChange?.day
+                          : gainOption === "week"
+                          ? v?.priceChange?.week
+                          : gainOption === "month"
+                          ? v?.priceChange?.month
+                          : v?.priceChange?.year) || "0"
+                      }
+                    />
+                  </span>
+                )}
+              </td>
+              <td className="hidden md:table-cell">
                 {loading ? (
                   <Skeleton />
                 ) : (
@@ -78,28 +118,28 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                 {loading ? (
                   <Skeleton />
                 ) : (
-                  <ItemChange value={v?.priceChange?.day || "0"} />
+                  <ItemChange value={v?.priceChange?.day} />
                 )}
               </td>
               <td className="hidden md:table-cell">
                 {loading ? (
                   <Skeleton />
                 ) : (
-                  <ItemChange value={v?.priceChange?.week || "0"} />
+                  <ItemChange value={v?.priceChange?.week} />
                 )}
               </td>
               <td className="hidden md:table-cell">
                 {loading ? (
                   <Skeleton />
                 ) : (
-                  <ItemChange value={v?.priceChange?.month || "0"} />
+                  <ItemChange value={v?.priceChange?.month} />
                 )}
               </td>
               <td className="hidden md:table-cell">
                 {loading ? (
                   <Skeleton />
                 ) : (
-                  <ItemChange value={v?.priceChange?.year || "0"} />
+                  <ItemChange value={v?.priceChange?.year} />
                 )}
               </td>
             </tr>

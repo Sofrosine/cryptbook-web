@@ -108,7 +108,7 @@
     font-size: 32px;
     line-height: 44px;
     letter-spacing: -0.022em;
-    font-family: 'Nunito-Bold';
+    font-family: "Nunito-Bold";
   }
 
   .heading-x {
@@ -132,8 +132,9 @@
 
   table {
     border: 1px solid lightgrey;
-    border-radius: 16px;
-    border-collapse: separate !important;
+    border-collapse: collapse;
+    border-radius: 1rem;
+    border-collapse: separate;
   }
   table thead th {
     padding-top: 16px;
@@ -149,5 +150,14 @@
     color: black;
     font-family: "Nunito-Bold";
   }
-  
+
+  input {
+    background-color: white;
+    border: 1px solid lightgrey;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 32px;
+    padding-right: 16px;
+    border-radius: 20px;
+  }
 }
