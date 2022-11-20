@@ -86,61 +86,48 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                 )}
               </td>
               <td className="table-cell md:hidden text-right">
-                {loading ? (
-                  <Skeleton />
-                ) : (
-                  <span className="flex flex-col items-end">
+                <span className="flex flex-col items-end">
+                  <span>
                     {currencyConverter(
                       Number(v?.priceChange?.latestPrice || 0)
                     )}
-                    <ItemChange
-                      value={
-                        (gainOption === "day"
-                          ? v?.priceChange?.day
-                          : gainOption === "week"
-                          ? v?.priceChange?.week
-                          : gainOption === "month"
-                          ? v?.priceChange?.month
-                          : v?.priceChange?.year) || "0"
-                      }
-                    />
+                  </span>
+                  <ItemChange
+                    loading={loading}
+                    value={
+                      (gainOption === "day"
+                        ? v?.priceChange?.day
+                        : gainOption === "week"
+                        ? v?.priceChange?.week
+                        : gainOption === "month"
+                        ? v?.priceChange?.month
+                        : v?.priceChange?.year) || "0"
+                    }
+                  />
+                </span>
+              </td>
+              <td className="hidden md:table-cell">
+                {loading ? (
+                  <Skeleton />
+                ) : (
+                  <span>
+                    {currencyConverter(
+                      Number(v?.priceChange?.latestPrice || 0)
+                    )}
                   </span>
                 )}
               </td>
               <td className="hidden md:table-cell">
-                {loading ? (
-                  <Skeleton />
-                ) : (
-                  currencyConverter(Number(v?.priceChange?.latestPrice || 0))
-                )}
+                <ItemChange loading={loading} value={v?.priceChange?.day} />
               </td>
               <td className="hidden md:table-cell">
-                {loading ? (
-                  <Skeleton />
-                ) : (
-                  <ItemChange value={v?.priceChange?.day} />
-                )}
+                <ItemChange loading={loading} value={v?.priceChange?.week} />
               </td>
               <td className="hidden md:table-cell">
-                {loading ? (
-                  <Skeleton />
-                ) : (
-                  <ItemChange value={v?.priceChange?.week} />
-                )}
+                <ItemChange loading={loading} value={v?.priceChange?.month} />
               </td>
               <td className="hidden md:table-cell">
-                {loading ? (
-                  <Skeleton />
-                ) : (
-                  <ItemChange value={v?.priceChange?.month} />
-                )}
-              </td>
-              <td className="hidden md:table-cell">
-                {loading ? (
-                  <Skeleton />
-                ) : (
-                  <ItemChange value={v?.priceChange?.year} />
-                )}
+                <ItemChange loading={loading} value={v?.priceChange?.year} />
               </td>
             </tr>
           ))}

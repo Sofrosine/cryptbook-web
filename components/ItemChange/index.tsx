@@ -1,13 +1,17 @@
 import { faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import Skeleton from "react-loading-skeleton";
 
 type Props = {
   value?: string;
+  loading?: boolean;
 };
 
-const ItemChange: React.FC<Props> = ({ value }) => {
-  return (
+const ItemChange: React.FC<Props> = ({ value, loading }) => {
+  return loading ? (
+    <Skeleton />
+  ) : (
     <div className="flex items-center justify-center">
       {Number(value) !== 0 && (
         <FontAwesomeIcon

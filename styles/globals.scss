@@ -1,27 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap");
 
 @layer components {
+  * {
+    font-family: "Nunito", sans-serif;
+  }
+
   .text-sl {
     font-weight: 300;
     font-size: 12px;
     line-height: 16px;
-    font-family: "Nunito-Light";
   }
 
   .text-sr {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-    font-family: "Nunito-Regular";
   }
 
   .text-sm {
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    font-family: "Nunito-Medium";
   }
 
   .text-ml {
@@ -29,7 +31,6 @@
     font-size: 14px;
     line-height: 19px;
     letter-spacing: -0.0005em;
-    font-family: "Nunito-Light";
   }
 
   .text-mr {
@@ -37,7 +38,6 @@
     font-size: 14px;
     line-height: 19px;
     letter-spacing: -0.0005em;
-    font-family: "Nunito-Regular";
   }
 
   .text-mm {
@@ -45,7 +45,6 @@
     font-size: 14px;
     line-height: 19px;
     letter-spacing: -0.0005em;
-    font-family: "Nunito-Medium";
   }
 
   .text-btnm {
@@ -53,7 +52,6 @@
     font-size: 16px;
     line-height: 19px;
     letter-spacing: -0.006em;
-    font-family: "Nunito-Medium";
   }
 
   .text-btnl {
@@ -61,7 +59,6 @@
     font-size: 16px;
     line-height: 19px;
     letter-spacing: -0.006em;
-    font-family: "Nunito-Light";
   }
 
   .text-lr {
@@ -69,7 +66,6 @@
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -0.011em;
-    font-family: "Nunito-Regular";
   }
 
   .text-lm {
@@ -77,7 +73,6 @@
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -0.011em;
-    font-family: "Nunito-Medium";
   }
 
   .heading-sr {
@@ -85,7 +80,6 @@
     font-size: 20px;
     line-height: 28px;
     letter-spacing: -0.017em;
-    font-family: "Nunito-Regular";
   }
 
   .heading-sm {
@@ -93,7 +87,6 @@
     font-size: 20px;
     line-height: 28px;
     letter-spacing: -0.017em;
-    font-family: "Nunito-Medium";
   }
 
   .heading-m {
@@ -108,7 +101,6 @@
     font-size: 32px;
     line-height: 44px;
     letter-spacing: -0.022em;
-    font-family: "Nunito-Bold";
   }
 
   .heading-x {

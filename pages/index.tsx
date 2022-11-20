@@ -134,7 +134,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-1 flex-col py-8 bg-white w-full">
-      <span className="mb-4 heading-l px-6">
+      <span className="mb-4 heading-l px-6 text-center md:text-start">
         Harga Crypto dalam Rupiah Hari Ini
       </span>
       <FilterList

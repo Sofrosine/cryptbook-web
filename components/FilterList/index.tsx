@@ -15,17 +15,17 @@ const FilterList: React.FC<Props> = ({ className, onChange }) => {
     <div
       className={clsx(
         className,
-        "flex overflow-scroll justify-between flex-col md:flex-row lg:overflow-hidden pb-2"
+        "flex  justify-between  md:items-center flex-col-reverse md:flex-row  pb-2"
       )}
     >
-      <div className="flex">
+      <div className="flex overflow-x-scroll lg:overflow-hidden">
         {FILTER_DATA.map((v, k) => (
           <span key={k} className="mr-4">
             <ItemFilter item={v} />
           </span>
         ))}
       </div>
-      <div className="flex relative">
+      <div className="flex w-full md:w-auto relative ">
         <FontAwesomeIcon
           icon={faSearch}
           height={16}
@@ -34,6 +34,7 @@ const FilterList: React.FC<Props> = ({ className, onChange }) => {
           color="lightgrey"
         />
         <input
+          className="w-full md:w-auto mb-4 md:mb-0"
           onChange={(v) => onChange && onChange(v?.target.value)}
           placeholder="Cari crypto"
         />
