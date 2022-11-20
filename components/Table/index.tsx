@@ -1,10 +1,7 @@
-import { faSortDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import ItemChange from "components/ItemChange";
-import { hexToCSSFilter } from "hex-to-css-filter";
 import Image from "next/image";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { currencyConverter } from "utils";
 
@@ -50,7 +47,7 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
           {data?.map((v: SupportedCurrency, k) => (
             <tr
               key={k}
-              className="text-center hover:bg-sky-100 hover:cursor-pointer"
+              className="text-center hover:bg-sky-100 hover:cursor-pointer font-semibold"
             >
               <td>
                 {loading ? (
@@ -73,13 +70,13 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                         // }}
                       />
                       <div className="flex flex-col items-start ml-2">
-                        <span className="">{v?.name}</span>
-                        <span className="text-stone-400 lg:hidden font-sans">
+                        <span>{v?.name}</span>
+                        <span className="text-stone-400 lg:hidden">
                           {v?.currencyGroup}
                         </span>
                       </div>
                     </span>
-                    <span className="text-stone-400 hidden lg:flex font-sans">
+                    <span className="text-stone-400 hidden lg:flex">
                       {v?.currencyGroup}
                     </span>
                   </div>
@@ -87,7 +84,7 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
               </td>
               <td className="table-cell md:hidden text-right">
                 <span className="flex flex-col items-end">
-                  <span>
+                  <span className="">
                     {currencyConverter(
                       Number(v?.priceChange?.latestPrice || 0)
                     )}
@@ -110,7 +107,7 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                 {loading ? (
                   <Skeleton />
                 ) : (
-                  <span>
+                  <span className="font-semibold">
                     {currencyConverter(
                       Number(v?.priceChange?.latestPrice || 0)
                     )}
