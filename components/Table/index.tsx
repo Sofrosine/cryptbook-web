@@ -82,7 +82,7 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
                         // }}
                       />
                       <div className="flex flex-col items-start ml-2">
-                        <span>{v?.name}</span>
+                        <span className="text-start">{v?.name}</span>
                         <span className="text-stone-400 lg:hidden">
                           {v?.currencyGroup}
                         </span>
