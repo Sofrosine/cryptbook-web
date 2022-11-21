@@ -8,14 +8,17 @@ import { currencyConverter } from "utils";
 type Props = {
   loading: boolean;
   data: any[];
-  className: string;
+  className?: string;
 };
 
 const Table: React.FC<Props> = ({ loading, data, className }) => {
   const [gainOption, setGainOption] = useState<GainOption | string>("day");
 
   return (
-    <div className={clsx(className, "w-full min-h-screen flex flex-col")}>
+    <div
+      className={clsx(className, "w-full min-h-screen flex flex-col")}
+      data-testid="main-table"
+    >
       <table className="w-full responsive">
         <thead className="hidden md:table-header-group">
           <tr className="py-4 px-4">
@@ -32,13 +35,22 @@ const Table: React.FC<Props> = ({ loading, data, className }) => {
             <th className="text-left pl-4">CRYPTO</th>
             <th className="text-right relative pr-4">
               <select
+                data-testid="main-table-select"
                 className="text-right"
                 onChange={(v) => setGainOption(v?.target?.value)}
               >
-                <option value="day">24 JAM</option>
-                <option value="week">1 MINGGU</option>
-                <option value="month">1 BULAN</option>
-                <option value="year">1 TAHUN</option>
+                <option data-testid="main-table-option" value="day">
+                  24 JAM
+                </option>
+                <option data-testid="main-table-option" value="week">
+                  1 MINGGU
+                </option>
+                <option data-testid="main-table-option" value="month">
+                  1 BULAN
+                </option>
+                <option data-testid="main-table-option" value="year">
+                  1 TAHUN
+                </option>
               </select>
             </th>
           </tr>

@@ -10,9 +10,9 @@ type Props = {
 
 const ItemChange: React.FC<Props> = ({ value, loading }) => {
   return loading ? (
-    <Skeleton />
+    <Skeleton containerTestId="item-change-loader" />
   ) : (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center" data-testid="item-change">
       {Number(value) !== 0 && (
         <FontAwesomeIcon
           className={`${Number(value) < 0 ? "mb-2" : "mt-2"} mr-2`}
